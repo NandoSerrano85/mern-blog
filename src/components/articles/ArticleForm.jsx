@@ -26,7 +26,8 @@ const ArticleForm = () => {
             alert(error);
             console.log(error);
         })
-    }
+    };
+    
     return (
         <Form onSubmit={handleSubmit}>
             <Form.Group>
