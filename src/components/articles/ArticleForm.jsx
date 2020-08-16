@@ -1,7 +1,7 @@
 import React, { useState }from 'react'
 import { Form, Button } from 'react-bootstrap';
 
-const ArticleForm = () => {
+const ArticleForm = ({history}) => {
     const initialState = {title:"", text:""};
     const [ values, setValues ] = useState(initialState);
 
@@ -16,10 +16,9 @@ const ArticleForm = () => {
         .then((res) => {
             if(res.ok){
                 alert("Blog posted");
-                setValues(initialState);
-                // return res.json().then((article) => {
-                //     history.push(`articles/${article._id}`);
-                // });
+                return res.json().then(article => {
+                    history.push(`/articles/${article._id}`);
+                });
             }
         })
         .catch((error) => {
