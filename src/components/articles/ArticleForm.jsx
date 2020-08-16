@@ -8,9 +8,9 @@ const ArticleForm = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        fetch("/artcles", {
+        fetch("/api/articles", {
             method: 'POST',
-            header: {"Content-Type": "application/json"},
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify(values)
         })
         .then((res) => {
